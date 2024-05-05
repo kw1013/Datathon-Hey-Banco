@@ -4,7 +4,7 @@ from chatbot import chat_bot
 
 def main():
 # Sidebar image
-    st.sidebar.image('img/heybanco.jpg')
+    st.sidebar.image('img/Hey_Banco.svg')
 
     # Sidebar menu
     with st.sidebar:
@@ -20,7 +20,7 @@ def main():
     if choice == "Hey, Now":
         chat_bot()
 
-if __name__ == "_main_":
+if __name__ == "__main__":
     if "messages" not in st.session_state:
         st.session_state.messages = []
     
