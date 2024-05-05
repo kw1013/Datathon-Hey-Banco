@@ -26,21 +26,24 @@ def generate_response(user_input, topic, sentiment):
 
 def chat_bot():
     # Information about the discussion forum
-    st.header('MVP: HeyFPT en Tweeter')
-    st.subheader('Uso de manera proactiva en tweeter')
+    st.header('MVP: Hey, Now')
+    st.subheader('Uso de manera proactiva en Twitter')
+
+    logo_assistant = 'img/logo_hey_now.jpg'
+    logo_user = 'img/logox.jpg'
 
     # Display chat messages from history on app rerun
     for message in st.session_state.chatbot_messages:
         if message['sender'] == 'assistant':
-            with st.chat_message(message["sender"]):
+            with st.chat_message(message["sender"], avatar=logo_assistant):
                 st.markdown(message["message"])
         elif message['sender'] == 'user':
-            with st.chat_message(message["sender"]):
+            with st.chat_message(message["sender"], avatar=logo_user):
                 st.markdown(message["message"])
 
     # Welcoming message
     if not st.session_state.chatbot_messages:
-        with st.chat_message('assistant'):
+        with st.chat_message('assistant', avatar=logo_assistant):
             st.write(f"Esperando a tweet...")
 
     # Define use input
@@ -60,11 +63,11 @@ def chat_bot():
         st.session_state.chatbot_messages.append({"sender": "user", "message": user_input})
 
         # Display message in chat message container
-        with st.chat_message('user'):
+        with st.chat_message('user', avatar=logo_user):
             st.write(user_input)
 
         # Display bot response in chat message container
-        with st.chat_message('assistant'):
+        with st.chat_message('assistant', avatar=logo_assistant):
             bot_response = st.write_stream(generate_response(user_input, topic, sentiment))
 
         # Add bot response to the session state
