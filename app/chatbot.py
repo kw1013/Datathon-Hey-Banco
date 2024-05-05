@@ -3,6 +3,10 @@ from data_pipeline import extract_topic, extract_sentiment
 import time
 
 def display_chatbot_conversation():
+    """
+    displays chatbot conversation with user
+    returns None
+    """
     for message in st.session_state.chatbot_messages:
         if message["sender"] == "User":
             st.write(f"Tu: {message['message']}")
@@ -10,6 +14,10 @@ def display_chatbot_conversation():
             st.write(f"Hey,: {message['message']}")
 
 def generate_response(user_input, topic, sentiment):
+    """
+    generates responses with time intervals for dinamic text display
+    returns None
+    """
     # Determine custom text based on sentiment
     if sentiment == 'Positive':
         cust_text = 'muchas gracias por tu comentario'
@@ -25,6 +33,10 @@ def generate_response(user_input, topic, sentiment):
         time.sleep(0.07)
 
 def chat_bot():
+    """
+    defines what is done in the chat bot page
+    returns None
+    """
     # Information about the discussion forum
     st.header('MVP: Hey, Now')
     st.subheader('Uso de manera proactiva en Twitter')

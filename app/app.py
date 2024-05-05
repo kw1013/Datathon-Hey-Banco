@@ -20,6 +20,7 @@ def main():
     if choice == "Hey, Now":
         chat_bot()
 
+# Execute main and stating message states for the session
 if __name__ == "__main__":
     if "messages" not in st.session_state:
         st.session_state.messages = []
